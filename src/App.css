@@ -2,9 +2,47 @@
   text-align: center;
 }
 
+ *{
+  padding: 0px;
+  margin: 0px;
+ }
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.header{
+  background-color: black;
+  display: block;
+  height: 40px;
+}
+
+.header > h2{
+  display:inline-block;
+  color: white;
+  margin-left: 15px;
+}
+
+.header > .btn {
+  float: right;
+  margin-top: 6px;
+  margin-right: 20px;
+  width: 120px;
+  font-size: 13px;
+  height: 28px;
+  background-color: #2563eb;
+}
+
+.Upload{
+  margin: 25px 30px;
+}
+
+.Upload > .newf{
+  height: 35px;
+  font-size: 14px;
+  background-color:#2563eb;
+  color: #fff;
+  width: 150px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

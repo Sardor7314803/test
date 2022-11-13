@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { Amplify } from 'aws-amplify';
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import { Button } from '@aws-amplify/ui-react';
+import { useEffect, useRef } from 'react';
+import awsExports from './Configuration';
+import Upload from './Upload';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+Amplify.configure(awsExports);
+
+export default function App() {
+ const ref = useRef(null);
+
+   return (
+    <Authenticator>
+      {({ signOut, user }) => {
+        console.log("user", user)
+        console.log("signOut", signOut)
+        return(
+          <main>
+            <div className='header'>
+              <h2>Dropbox</h2>
+              <Button variation="primary" onClick={signOut} className="btn">Sign out</Button>
+            </div>
+          <Upload/>
+            
+        </main>
+      )}}
+    </Authenticator>
   );
 }
-
-export default App;
